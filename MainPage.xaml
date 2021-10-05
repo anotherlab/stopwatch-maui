@@ -1,0 +1,55 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:StopwatchMaui.ViewModels"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Converters;assembly=CommunityToolkit.Maui"
+             x:Class="StopwatchMaui.MainPage"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+
+    <ContentPage.BindingContext>
+        <vm:StopWatchViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <mct:NotEqualConverter x:Key="NotEqualConverter" />
+            <x:Boolean x:Key="IsTrue">True</x:Boolean>
+            <Style x:Key="numericStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="FontFamily" Value="DigitalMono" />
+                <Setter Property="FontSize" Value="72" />
+                <Setter Property="Padding" Value="10,6,10,6" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="numericStyle2" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="FontFamily" Value="DigitalMono" />
+                <Setter Property="FontSize" Value="72" />
+                <Setter Property="Padding" Value="10,6,10,6" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="startStopStyle" TargetType="Button">
+                <Setter Property="Margin" Value="0,10" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="0" CornerRadius="0">
+                <Label Text="MAUI Stopwatch" HorizontalTextAlignment="Center" FontSize="Title" TextColor="White"/>
+            </Frame>
+            <Grid ColumnDefinitions="15*,70*,15*">
+                <Image Grid.Column="1" Source="stopwatch"/>
+            </Grid>
+            <Frame Padding="0" BackgroundColor="#5c5c5c" Margin="4,0,4,10" HasShadow="True">
+                <Frame Padding="0" BackgroundColor="#d6d6d6" Margin="4,4,4,4" >
+                    <Label Text="{Binding ElapsedTime}" Style="{StaticResource numericStyle}" />
+                </Frame>
+            </Frame>
+
+            <Button Command="{Binding StartCommand}" IsVisible="{Binding IsRunning, Converter={StaticResource NotEqualConverter}, ConverterParameter={StaticResource IsTrue}}" Text="Start" BackgroundColor="Green" Style="{StaticResource startStopStyle}"/>
+            <Button Command="{Binding StopCommand}" IsVisible="{Binding IsRunning}" Text="Stop" BackgroundColor="Red" Style="{StaticResource startStopStyle}"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
