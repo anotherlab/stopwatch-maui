@@ -30,7 +30,10 @@ namespace StopwatchMaui.ViewModels
 
             Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
             {
-                ElapsedTime = stopwatch.Elapsed.ToString(@"mm\:ss\.fff");
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    ElapsedTime = stopwatch.Elapsed.ToString(@"mm\:ss\.fff");
+                });
                 return isRunning;
             });
         }
