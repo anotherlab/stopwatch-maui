@@ -85,6 +85,7 @@ namespace StopwatchMaui.ViewModels
         private void Clear()
         {
             LapTimes.Clear();
+            ElapsedTime = "00:00.000";
             HasLaps = false;
         }
 

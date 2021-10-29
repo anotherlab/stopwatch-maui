@@ -29,11 +29,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiImage 
-			Include="Resources\appicon.svg" 
-			ForegroundFile="Resources\Images\stopwatch.svg" 
-			IsAppIcon="true" 
-			Color="#baaaf2" />
+		<MauiImage Include="Resources\appicon.svg" ForegroundFile="Resources\Images\stopwatch.svg" IsAppIcon="true" Color="#baaaf2" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\stopwatchsplash.svg" Color="#baaaf2" />
@@ -58,6 +54,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\digital-7 %28mono%29.ttf" />
 	  <None Remove="Resources\Fonts\fa-solid-900.ttf" />
+	  <None Remove="Resources\Images\logopath.svg" />
 	  <None Remove="Resources\Images\stopwatch.svg" />
 	  <None Remove="Resources\Images\stopwatchspash.svg" />
 	</ItemGroup>
