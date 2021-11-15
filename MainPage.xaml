@@ -52,7 +52,7 @@
                 <Label Text="MAUI Stopwatch" HorizontalTextAlignment="Center" FontSize="Title" TextColor="White"/>
             </Frame>
             <Grid Margin="0" Padding="0" BackgroundColor="White">
-                <Image Source="logopath" HeightRequest="100" Margin="20" HorizontalOptions="Center"/>
+                <Image Source="stopwatch" HeightRequest="150" Margin="20" HorizontalOptions="Center"/>
             </Grid>
             <Frame Padding="0" BackgroundColor="#5c5c5c" Margin="4,0,4,10" HasShadow="True">
                 <Frame Padding="0" BackgroundColor="#d6d6d6" Margin="4,4,4,4" >
@@ -64,7 +64,9 @@
                 <Button 
                     Grid.Column="0"
                     Command="{Binding StartCommand}" 
-                    IsVisible="{Binding IsRunning, Converter={StaticResource NotEqualConverter}, ConverterParameter={StaticResource IsTrue}}" 
+                    IsVisible="{Binding IsRunning, 
+                                Converter={StaticResource NotEqualConverter}, 
+                                ConverterParameter={StaticResource IsTrue}}" 
                     Text="Start" 
                     BackgroundColor="Green" 
                     Style="{StaticResource startStopStyle}"/>
@@ -88,7 +90,9 @@
                 <Button 
                     Grid.Column="1"
                     Command="{Binding ClearCommand}" 
-                    IsVisible="{Binding IsRunning, Converter={StaticResource NotEqualConverter}, ConverterParameter={StaticResource IsTrue}}" 
+                    IsVisible="{Binding IsRunning, 
+                                Converter={StaticResource NotEqualConverter}, 
+                                ConverterParameter={StaticResource IsTrue}}" 
                     Text="Clear" 
                     BackgroundColor="Red" 
                     Style="{StaticResource startStopStyle}"/>
